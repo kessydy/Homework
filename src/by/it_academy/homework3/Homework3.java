@@ -4,20 +4,24 @@ import java.util.Scanner;
 
 public class Homework3 {
     public static void main(String[] args) {
+        int numberInput1 = scanNumber("Please, enter positive three-digit number:");
+        exercise1(numberInput1);
+        int numberInput2 = scanNumber("Please, enter positive three-digit number:");
+        exercise2(numberInput2);
+        int numberInput3 = scanNumber("Please, enter positive three-digit number:");
+        exercise3(numberInput3);
+        int numberInput4 = scanNumber("Please, enter positive number:");
+        int numberInput5 = scanNumber("Please, enter positive number:");
+        int numberInput6 = scanNumber("Please, enter positive number:");
+        exercise4(numberInput4, numberInput5, numberInput6);
+        int numberInput7 = scanNumber("Please, enter positive number from 1 to 12:");
+        exercise5(numberInput7);
+
+    }
+    private static int scanNumber(String message){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Please, enter positive three-digit number:");
-        int numberInput = sc.nextInt();
-        exercise1(numberInput);
-        exercise2(numberInput);
-        exercise3(numberInput);
-        System.out.println("Please, enter 3 positive number:");
-        int inputNumber1 = sc.nextInt();
-        int inputNumber2 = sc.nextInt();
-        int inputNumber3 = sc.nextInt();
-        exercise4(inputNumber1, inputNumber2, inputNumber3);
-        System.out.println("Please, enter positive number from 1 to 12:");
-        int inputNumber4 = sc.nextInt();
-        exercise5(inputNumber4);
+        System.out.println(message);
+        return sc.nextInt();
     }
 
     private static boolean checkNumber(int number) {
@@ -92,10 +96,10 @@ public class Homework3 {
         return  (number1 > 0 || number2 > 0 || number3 > 0);
     }
 
-    private static void exercise4(int number1Ex4, int number2Ex4, int number3Rx4) {
-        if (!checkPositiveNumber(number1Ex4, number2Ex4, number3Rx4)){
+    private static void exercise4(int number1Ex4, int number2Ex4, int number3Ex4) {
+        if (!checkPositiveNumber(number1Ex4, number2Ex4, number3Ex4)){
             System.out.println("Incorrect number");
-        } else if ((number1Ex4 < number2Ex4 + number3Rx4) && (number2Ex4 < number1Ex4 + number3Rx4) && (number3Rx4 < number1Ex4 + number2Ex4)) {
+        } else if ((number1Ex4 < number2Ex4 + number3Ex4) && (number2Ex4 < number1Ex4 + number3Ex4) && (number3Ex4 < number1Ex4 + number2Ex4)) {
             System.out.println("The triangle exists");
         } else {
             System.out.println("The triangle doesn't exists");
