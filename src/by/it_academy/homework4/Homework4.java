@@ -4,18 +4,20 @@ import java.util.Scanner;
 
 public class Homework4 {
     public static void main(String[] args) {
-        /*exercise1a();
+        exercise1();
         exercise2();
         exercise3();
         exercise4();
         exercise5();
         exercise55();
-        exercise6();*/
+        exercise6();
         exercise7();
+        exercise8();
+        exercise9();
     }
 
-    /*Напишите программу, которая выводит на консоль таблицу умножения*/
-    private static void exercise1a() {
+    // Напишите программу, которая выводит на консоль таблицу умножения
+    private static void exercise1() {
         for (int i = 1; i < 10; i++) {
             for (int j = 1; j < 10; j++) {
                 System.out.print(i * j);
@@ -38,7 +40,7 @@ public class Homework4 {
         int inputNumber1 = scanNumber("Please input number a: ");
         int inputNumber2 = scanNumber("Please input number b: ");
         System.out.println("a x b = " + (inputNumber1 * inputNumber2));
-        int inputNumber3 = scanNumber("Let's one more time? (1 = no)");
+        int inputNumber3 = scanNumber("Let's one more time? (Please, input some number. 1 = no)");
         if (inputNumber3 != 1) {
             exercise2();
         } else System.out.println("Thank you");
@@ -52,7 +54,7 @@ public class Homework4 {
     private static void exercise3() {
         int inputNumber1 = scanNumber("Please input first number: ");
         int inputNumber2 = scanNumber("Please input second number: ");
-        int inputNumber3 = scanNumber("Please input numerous: ");
+        int inputNumber3 = scanNumber("Please input quantity: ");
         int sum = inputNumber1 + inputNumber2;
         int[] A = new int[inputNumber3];
         A[0] = inputNumber1;
@@ -72,9 +74,9 @@ public class Homework4 {
         int inputNumber = scanNumber("Please input number: ");
         if (inputNumber != 0) {
             if (inputNumber > 0) {
-                System.out.println(inputNumber + " Плюс ");
+                System.out.println("Плюс");
             } else {
-                System.out.println(inputNumber + " Минус ");
+                System.out.println("Минус");
             }
             exercise4();
         } else System.out.println("Finish");
@@ -131,15 +133,15 @@ public class Homework4 {
     private static void exercise6() {
         int count = 0;
         for (int i = 100; i < 1000; i++) {
-                int firstNumber = (i % 1000) / 100;
-                int secondNumber = (i % 100) / 10;
-                int thirdNumber = i % 10;
-                if (firstNumber * firstNumber + thirdNumber * thirdNumber == secondNumber * secondNumber) {
-                    count++;
-                    System.out.println(i);
-                }
+            int firstNumber = (i % 1000) / 100;
+            int secondNumber = (i % 100) / 10;
+            int thirdNumber = i % 10;
+            if (firstNumber * firstNumber + thirdNumber * thirdNumber == secondNumber * secondNumber) {
+                count++;
+                System.out.println(i);
             }
-        System.out.println(count);
+        }
+        System.out.println("Quantity of 'pretty' numerous is " + count);
     }
 
     /*Напишите класс, который принимает с клавиатуры положительное целое число и выводит на экран все его
@@ -147,11 +149,14 @@ public class Homework4 {
 
     private static void exercise7() {
         int inputNumber = scanNumber("Please input positive number: ");
+        if (inputNumber < 0) {
+            System.out.print("Incorrect number");
+        }
         System.out.print("For number " + inputNumber + " deliveries are: ");
         int count = 0;
         int sum = 0;
         for (int number = 1; number <= inputNumber; number++) {
-            if (inputNumber % number == 0){
+            if (inputNumber % number == 0) {
                 count++;
                 sum = sum + number;
                 System.out.print(number);
@@ -165,6 +170,46 @@ public class Homework4 {
         System.out.println("Number of deliveries is " + count + ". The sum of deliveries is " + sum + ".");
     }
 
+    /* Напишите класс, который принимает с клавиатуры оценки 30 учеников класса и выводит на экран:
+    среднюю арифметическую оценку класса, число учеников, получивших неудовлетворительные оценки
+     */
+
+    private static void exercise8() {
+        double sum = 0;//почему-то при int в числителе double average все равно считает целое число
+        double average;
+        int count = 0;
+        for (int i = 1; i <= 30; i++) {
+            int inputMark = scanNumber("Введите оценку:");
+            System.out.println(i);//Чтобы ориентироваться в количестве введённых оценок
+            sum = sum + inputMark;
+            if (inputMark < 3) {
+                count++;
+            }
+        }
+        average = sum / 30;
+        System.out.println("Средняя арифметическая оценка класса: " + average);
+        System.out.println("Количество неудовлетворительных оценок: " + count);
+    }
+
+    /*Напишите класс, который принимает с клавиатуры три целых числа и проверяет, являются ли они
+    тремя последовательными членами арифметической прогрессии. Если являются, то тогда нужно вывести
+    еще 10 следующих членов этой прогрессии, если нет - вывести соответствующее сообщение.*/
+
+    private static void exercise9() {
+        int num1 = scanNumber("Please input first number: ");
+        int num2 = scanNumber("Please input second number: ");
+        int num3 = scanNumber("Please input third number: ");
+        int nextNum = num3;
+        if ((num2 - num1) != (num3 - num2)) {
+            System.out.println("The numbers are not in progression");
+        } else {
+            System.out.print(num1 + " " + num2 + " " + num3 + " ");
+            for (int i = 0; i < 10; i++) {
+                nextNum = nextNum + (num3 - num2);
+                System.out.print(nextNum + " ");
+            }
+        }
+    }
 
     private static int scanNumber(String message) {
         Scanner sc = new Scanner(System.in);
