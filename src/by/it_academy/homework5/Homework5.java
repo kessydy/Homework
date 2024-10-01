@@ -1,22 +1,18 @@
 package by.it_academy.homework5;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
 public class Homework5 {
     public static void main(String[] args) {
-//        exercise1();
-//        exercise2();
-//        exercise3();
-//        exercise4();
-//        exercise5();
+        exercise1();
+        exercise2();
+        exercise3();
+        exercise4();
+        exercise5();
         exercise6();
-//        exercise7();
-//        exercise8();
-//        exercise9();
-
+        exercise7();
     }
 
     /* Задача 1
@@ -54,7 +50,7 @@ public class Homework5 {
     /* Задача 2
     Заменить каждый элемент массива с нечетным индексом на ноль. */
     private static void exercise2() {
-        int[] array = generateAray(8);
+        int[] array = generateArray(8);
         for (int i = 0; i < array.length; i++) {
             if (i % 2 != 0) {
                 array[i] = 0;
@@ -68,7 +64,7 @@ public class Homework5 {
     из отрезка [10;99], выведите его на экран в строку. Далее определите и выведите на экран сообщение
     о том, является ли массив строго возрастающей последовательностью. */
     private static void exercise3() {
-        int[] array = generateAray(4);
+        int[] array = generateArray(4);
         System.out.println(Arrays.toString(array));
 //        if (array[0] < array[1] && array[1] < array[2] && array[2] < array[3]) {
 //            System.out.println("Array is increasing");
@@ -94,9 +90,8 @@ public class Homework5 {
     во второй строке - значения из нечетных ячеек массива. */
     private static void exercise4() {
         int arrayLength = scanNumber("Please input array1 length: ");
-        int[] array = generateAray(arrayLength);
-        System.out.println(Arrays.toString(array));
-        System.out.println();
+        int[] array = generateArray(arrayLength);
+//        System.out.println(Arrays.toString(array));
         for (int i = 0; i < arrayLength; i++) {
             if (array[i] % 2 == 0) {
                 System.out.print(array[i] + " ");
@@ -108,15 +103,39 @@ public class Homework5 {
                 System.out.print(array[i] + " ");
             }
         }
+        System.out.println();
     }
 
     /* Задача 5
     Напишите метод, который принимает два параметра: массив целых чисел М и еще одно целое число Х.
     Метод проверяет, находится ли число Х в массиве. */
     private static void exercise5() {
-
+        int[] newArray = {13, 13, 15, 65, 356, 32, 67, 88};
+        int number = 356;
+        System.out.println(checkArray(newArray, number));
     }
 
+    private static String checkArray(int[] array, int X) {
+//        boolean find = false;
+//        for (int i = 0; i < array.length; i++) {
+//            if (array[i] == X) {
+//                find = true;
+//            }
+//        }
+//        if (find == true) {
+//            return "Number is in array";
+//        } else {
+//            return "Number isn't in array";
+//        }
+
+        Arrays.sort(array);
+        int find = Arrays.binarySearch(array, X);
+        if (find > 0) {
+            return "Number is in array";
+        } else {
+            return "Number isn't in array";
+        }
+    }
 
     /* Задача 6*
     Создать второй массив из четных элементов первого массива.
@@ -127,7 +146,7 @@ public class Homework5 {
     3. Создать массив из n случайных целых чисел из отрезка [0;n] и вывести его на экран.
     4. Создать второй массив только из чётных элементов первого массива, если они там есть, и вывести его на экран.*/
     private static void exercise6() {
-        int n = scanNumber("Please input array length: ");
+        int n = scanNumber("Please input array length more than 3: ");
         int array2Length = 0;
         if (n < 3) {
             exercise6();
@@ -141,7 +160,6 @@ public class Homework5 {
                 }
             }
             System.out.println(Arrays.toString(array));
-
             int[] array2 = new int[array2Length];
             int evenIndex = 0;
             for (int element : array) {
@@ -154,12 +172,26 @@ public class Homework5 {
         }
     }
 
-
-
     /* Задача 7*
     Напишите метод, который получает в качестве параметра массив и заполняет его положительными
     случайными двузначными числами так, чтобы первая и вторая половины массива были идентичными.*/
+    private static void exercise7() {
+        int[] emptyArray = new int[9];
+        System.out.println(Arrays.toString(newArray(emptyArray)));
+    }
 
+    private static int[] newArray(int[] fullArray) {
+        Random r = new Random();
+        for (int i = 0; i < fullArray.length / 2; i++) {
+            if (fullArray.length % 2 == 0) {
+                fullArray[i] = fullArray[(fullArray.length / 2 + i)] = r.nextInt(10, 100);
+            } else {
+                fullArray[i] = fullArray[(fullArray.length / 2 + 1 + i)] = r.nextInt(10, 100);
+                fullArray[(fullArray.length / 2)] = r.nextInt(10, 100);
+            }
+        }
+        return fullArray;
+    }
 
     private static int scanNumber(String message) {
         Scanner sc = new Scanner(System.in);
@@ -167,7 +199,7 @@ public class Homework5 {
         return sc.nextInt();
     }
 
-    private static int[] generateAray(int arrayLength) {
+    private static int[] generateArray(int arrayLength) {
         int[] array = new int[arrayLength];
         Random r = new Random();
         for (int i = 0; i < arrayLength; i++) {
