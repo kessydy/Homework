@@ -25,21 +25,19 @@ public class Homework5 {
     private static void exercise1() {
         int arrayLength = scanNumber("Please input array length: ");
         int[] array = new int[arrayLength];
-        int counter = 1;
-        int counter1 = 1;
+
         for (int i = 0; i < arrayLength; i++) {
-            array[i] = counter;
-            if (counter > 0) {
-                counter = (counter + 1) * (-1);
-            } else {
-                counter = (counter - 1) * (-1);
+            array[i] = i + 1;
+            if (array[i] % 2 == 0) {
+                array[i] *= -1;
             }
         }
         System.out.println(Arrays.toString(array));
+        int counter = 1;
         for (int i = 0; i < arrayLength; i++) {
             if (i % 2 == 0) {
-                array[i] = counter1;
-                counter1++;
+                array[i] = counter;
+                counter++;
             } else {
                 array[i] = 0;
             }
@@ -89,21 +87,26 @@ public class Homework5 {
     в первой строке - значения из четных ячеек массива;
     во второй строке - значения из нечетных ячеек массива. */
     private static void exercise4() {
-        int arrayLength = scanNumber("Please input array1 length: ");
+        int arrayLength = scanNumber("Please input array length: ");
         int[] array = generateArray(arrayLength);
-//        System.out.println(Arrays.toString(array));
+        System.out.println(Arrays.toString(array));
+        int lengthOdd = arrayLength / 2;
+        int lengthEven = arrayLength - lengthOdd;
+        int[] evenArray = new int[lengthEven];
+        int[] oddArray = new int[lengthOdd];
+        int evenIndex = 0;
+        int oddIndex = 0;
         for (int i = 0; i < arrayLength; i++) {
-            if (array[i] % 2 == 0) {
-                System.out.print(array[i] + " ");
+            if (i % 2 == 0) {
+                evenArray[evenIndex] = array[i];
+                evenIndex++;
+            } else {
+                oddArray[oddIndex] = array[i];
+                oddIndex++;
             }
         }
-        System.out.println();
-        for (int i = 0; i < arrayLength; i++) {
-            if (array[i] % 2 != 0) {
-                System.out.print(array[i] + " ");
-            }
-        }
-        System.out.println();
+        System.out.println(Arrays.toString(evenArray));
+        System.out.println(Arrays.toString(oddArray));
     }
 
     /* Задача 5
@@ -115,10 +118,10 @@ public class Homework5 {
         System.out.println(checkArray(newArray, number));
     }
 
-    private static String checkArray(int[] array, int X) {
+    private static String checkArray(int[] M, int X) {
 //        boolean find = false;
-//        for (int i = 0; i < array.length; i++) {
-//            if (array[i] == X) {
+//        for (int i = 0; i < M.length; i++) {
+//            if (M[i] == X) {
 //                find = true;
 //            }
 //        }
@@ -128,8 +131,8 @@ public class Homework5 {
 //            return "Number isn't in array";
 //        }
 
-        Arrays.sort(array);
-        int find = Arrays.binarySearch(array, X);
+        Arrays.sort(M);
+        int find = Arrays.binarySearch(M, X);
         if (find > 0) {
             return "Number is in array";
         } else {
@@ -148,7 +151,7 @@ public class Homework5 {
     private static void exercise6() {
         int n = scanNumber("Please input array length more than 3: ");
         int array2Length = 0;
-        if (n < 3) {
+        if (n <= 3) {
             exercise6();
         } else {
             int[] array = new int[n];
@@ -163,7 +166,7 @@ public class Homework5 {
             int[] array2 = new int[array2Length];
             int evenIndex = 0;
             for (int element : array) {
-                if (element % 2 == 0 && element != 0) {
+                if (element % 2 == 0) {
                     array2[evenIndex] = element;
                     evenIndex++;
                 }
@@ -182,12 +185,13 @@ public class Homework5 {
 
     private static int[] newArray(int[] fullArray) {
         Random r = new Random();
-        for (int i = 0; i < fullArray.length / 2; i++) {
-            if (fullArray.length % 2 == 0) {
-                fullArray[i] = fullArray[(fullArray.length / 2 + i)] = r.nextInt(10, 100);
+        int myLength = fullArray.length;
+        for (int i = 0; i < myLength / 2; i++) {
+            if (myLength % 2 == 0) {
+                fullArray[i] = fullArray[(myLength / 2 + i)] = r.nextInt(10, 100);
             } else {
-                fullArray[i] = fullArray[(fullArray.length / 2 + 1 + i)] = r.nextInt(10, 100);
-                fullArray[(fullArray.length / 2)] = r.nextInt(10, 100);
+                fullArray[i] = fullArray[(myLength / 2 + 1 + i)] = r.nextInt(10, 100);
+                fullArray[(myLength / 2)] = r.nextInt(10, 100);
             }
         }
         return fullArray;
