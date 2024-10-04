@@ -13,20 +13,19 @@ public class Time {
     private int minutes;
     private int hours;
 
-    public Time fullSeconds() {
+    public int fullSeconds() {
         int fullSeconds = this.seconds + this.minutes * 60 + this.hours * 3600;
-        Time fullSecondsInTime = new Time(fullSeconds);
-        return fullSecondsInTime;
+        return fullSeconds;
     }
 
-    public void compareTime(Time timeToCompare) {
+    public boolean equalsTime(Time timeToCompare) {
         int fullSeconds1 = this.seconds + this.minutes * 60 + this.hours * 3600;
         int fullSeconds2 = timeToCompare.seconds + timeToCompare.minutes * 60 + timeToCompare.hours * 3600;
-        if (fullSeconds1 > fullSeconds2) {
-            System.out.println("The first object is bigger");
-        } else {
-            System.out.println("The second object is bigger");
+        boolean compareResult = false;
+        if (fullSeconds1 == fullSeconds2) {
+            compareResult = true;
         }
+        return compareResult;
     }
 
     public Time(int seconds) {
