@@ -2,7 +2,7 @@ package by.it_academy.homework6.Time;
 
 public class Objects {
     public static void main(String[] args) {
-        Time time1 = new Time(31, 5, 8);
+        Time time1 = new Time(48, 54, 6);
         time1.printTime();
         int fullSecondsTime1 = time1.fullSeconds();
         System.out.println("Количество секунд всего: " + fullSecondsTime1);

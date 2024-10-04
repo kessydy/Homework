@@ -14,18 +14,13 @@ public class Time {
     private int hours;
 
     public int fullSeconds() {
-        int fullSeconds = this.seconds + this.minutes * 60 + this.hours * 3600;
-        return fullSeconds;
+        return this.seconds + this.minutes * 60 + this.hours * 3600;
     }
 
     public boolean equalsTime(Time timeToCompare) {
         int fullSeconds1 = this.seconds + this.minutes * 60 + this.hours * 3600;
         int fullSeconds2 = timeToCompare.seconds + timeToCompare.minutes * 60 + timeToCompare.hours * 3600;
-        boolean compareResult = false;
-        if (fullSeconds1 == fullSeconds2) {
-            compareResult = true;
-        }
-        return compareResult;
+        return fullSeconds1 == fullSeconds2;
     }
 
     public Time(int seconds) {
