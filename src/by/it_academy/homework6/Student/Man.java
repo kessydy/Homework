@@ -37,6 +37,6 @@ public class Man {
     }
 
     public String printStudent() {
-        return "Student " + getName() + ", " + getAge() + " years old ," + getWeigth() + " kg.";
+        return "Student " + getName() + ", " + getAge() + " years old, " + getWeigth() + " kg.";
     }
 }

@@ -22,7 +22,7 @@ public class Student extends Man {
     }
 
     public String printStudent() {
-        return "Student " + super.getName() + ", " + super.getAge() + " years old ," + super.getWeigth() + " kg. " + getYearOfStudy() + " yeas of study.";
+        return "Student " + super.getName() + ", " + super.getAge() + " years old, " + super.getWeigth() + " kg. " + getYearOfStudy() + " yeas of study.";
     }
 
 }
