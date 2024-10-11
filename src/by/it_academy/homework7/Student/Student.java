@@ -3,8 +3,8 @@ package by.it_academy.homework7.Student;
 public class Student extends Man {
     private int yearOfStudy;
 
-    public Student(String name, int age, float weigth, int yearOfStudy) {
-        super(name, age, weigth);
+    public Student(String name, int age, String gender, float weigth, int yearOfStudy) {
+        super(name, age, gender, weigth);
         this.yearOfStudy = yearOfStudy;
     }
 
@@ -17,12 +17,15 @@ public class Student extends Man {
     }
 
     public int addYear() {
-        this.yearOfStudy++;
-        return this.yearOfStudy;
+        return this.yearOfStudy++;
     }
 
-    public String printStudent() {
-        return "Student " + super.getName() + ", " + super.getAge() + " years old, " + super.getWeigth() + " kg. " + getYearOfStudy() + " yeas of study.";
+    @Override
+    public String toString() {
+        return "Student " + getName() +
+                ", age = " + getAge() + " years old, " +
+                "gender = '" + getGender() + '\'' +
+                ", weigth = " + getWeigth() + " kg, " +
+                yearOfStudy + " year of study.";
     }
-
 }

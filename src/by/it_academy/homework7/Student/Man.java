@@ -6,9 +6,10 @@ public class Man {
     private String gender;
     private float weigth;
 
-    public Man(String name, int age, float weigth) {
+    public Man(String name, int age, String gender, float weigth) {
         this.name = name;
         this.age = age;
+        this.gender = gender;
         this.weigth = weigth;
     }
 
@@ -36,7 +37,16 @@ public class Man {
         this.weigth = weigth;
     }
 
-    public String printStudent() {
-        return "Student " + getName() + ", " + getAge() + " years old, " + getWeigth() + " kg.";
+    public String getGender() {
+        return gender;
+    }
+
+    @Override
+    public String toString() {
+        return "Human" +
+                " name = '" + name + '\'' +
+                ", age = " + age + " years old, "+
+                ", gender = '" + gender + '\'' +
+                ", weigth = " + weigth + "kg";
     }
 }
