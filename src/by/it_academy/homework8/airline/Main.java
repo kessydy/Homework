@@ -20,7 +20,7 @@ public class Main {
         AirLine airLine = new AirLine(aircrafts);
         System.out.println(airLine);
         System.out.println("The full passenger capacity of aircrafs is: " + airLine.getFullPassengersCapacity());
-        System.out.println("The full full lifting of aircrafs is: " + airLine.getFullLiftingCapacity());
+        System.out.println("The full lifting capacity of aircrafs is: " + airLine.getFullLiftingCapacity());
         System.out.println();
         System.out.println("Passengers capacity from 200 to 400 & lifting capacity from 300 to 60000 includes: " +
                 airLine.findPlanePassengersCapacityLiftingCapacity(200, 400,
