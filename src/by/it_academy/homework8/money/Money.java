@@ -7,7 +7,7 @@ public class Money {
 //    * учесть кол-во рублей и копеек при выводе на экран : рубля/рублей копейки/копеек
     private int ruble;
     private int kopeck;
-    private String rubleCase;
+
     private String kopeckCase;
 
     public Money(int ruble, int kopeck) {
@@ -47,43 +47,38 @@ public class Money {
     }
 
     public void compareMoney(Money money) {
-        if ((this.ruble > money.getRuble()) || (this.ruble == money.getRuble() && this.kopeck > money.getKopeck())) {
+        if ((this.ruble * 100 + this.kopeck > money.getRuble() * 100 + money.getKopeck())){
             System.out.println("Исходная сумма больше");
-        } else if (this.ruble == money.getRuble() && this.kopeck == money.getKopeck()) {
+        } else if ((this.ruble * 100 + this.kopeck == money.getRuble() * 100 + money.getKopeck())) {
             System.out.println("Суммы равны");
         } else {
             System.out.println("Исходная сумма меньше");
         }
     }
 
-    private String displayMoney() {
-        return "В кошельке " + ruble + "," + kopeck + ". ";
-    }
 
     private String printRuble() {
         if ((ruble % 10 >= 5) || (ruble % 10 == 0) || (((ruble / 10) % 10 == 1))) {
-            rubleCase = " рублей, ";
+            return " рублей, ";
         } else if (ruble % 10 == 1) {
-            rubleCase = " рубль, ";
-        } else if (ruble % 10 > 1 && ruble % 10 <= 4) {
-            rubleCase = " рубля, ";
+            return " рубль, ";
+        } else {
+            return " рубля, ";
         }
-        return rubleCase;
     }
 
     private String printKopeck() {
         if ((kopeck % 10 >= 5) || (kopeck % 10 == 0) || (((kopeck / 10) % 10 == 1))) {
-            kopeckCase = " копеек.";
+            return " копеек.";
         } else if (kopeck % 10 == 1) {
-            kopeckCase = " копейка.";
-        } else if (kopeck % 10 > 1 && kopeck % 10 <= 4) {
-            kopeckCase = " копейки.";
+            return " копейка.";
+        } else {
+            return " копейки.";
         }
-        return kopeckCase;
     }
 
-    public void printResult() {
-        System.out.print(displayMoney() + ruble + printRuble() + kopeck + printKopeck());
-        System.out.println();
+    public String displayMoney() {
+        return "В кошельке " + ruble + "," + kopeck + ". " + ruble + printRuble() + kopeck + printKopeck();
     }
+
 }

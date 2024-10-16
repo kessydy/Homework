@@ -14,9 +14,9 @@ public class Helicopter extends Aircraft implements Hovering{
     @Override
     public String toString() {
         return "Helicopter " +
-                "name = '" + getName() + '\'' +
+                '\'' + getName() + '\'' +
                 ", passengersCapacity = " + getPassengersCapacity() +
-                ", liftingСapacity = " + getLiftingСapacity();
+                ", liftingСapacity = " + getLiftingCapacity();
     }
 }
 

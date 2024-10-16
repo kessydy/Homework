@@ -14,9 +14,9 @@ public class Quadcopter extends Aircraft implements Hovering {
     @Override
     public String toString() {
         return "Quadcopter " +
-                "name = '" + getName() + '\'' +
+                '\'' + getName() + '\'' +
                 ", passengersCapacity = " + getPassengersCapacity() +
-                ", liftingСapacity = " + getLiftingСapacity() +
+                ", liftingСapacity = " + getLiftingCapacity() +
                 ", containsCamera = " + containsCamera +
                 ", weigth = " + weigth;
     }

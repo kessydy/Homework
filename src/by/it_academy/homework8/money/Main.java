@@ -12,14 +12,15 @@ public class Main {
         Money money2 = new Money(33, 90);
         Money money3 = new Money(10, 59);
         Money money4 = new Money(14, 57);
-        money.printResult();
-        money1.printResult();
+
+        System.out.println(money.displayMoney());
+        System.out.println(money1.displayMoney());
         money.addMoney(money1);
-        money.printResult();
+        System.out.println(money.displayMoney());
         money.subtractMoney(money2);
-        money.printResult();
+        System.out.println(money.displayMoney());
         money.subtractMoney(money3);
-        money.printResult();
+        System.out.println(money.displayMoney());
         money1.compareMoney(money2);
         money1.compareMoney(money4);
 

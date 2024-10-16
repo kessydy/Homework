@@ -2,8 +2,8 @@ package by.it_academy.homework8.airline;
 
 public class Airship extends Aircraft implements Hovering{
 
-    public Airship(String name, int passengersCapacity, double liftingСapacity) {
-        super(name, passengersCapacity, liftingСapacity);
+    public Airship(String name, int passengersCapacity, double liftingCapacity) {
+        super(name, passengersCapacity, liftingCapacity);
     }
 
     @Override
@@ -14,8 +14,8 @@ public class Airship extends Aircraft implements Hovering{
     @Override
     public String toString() {
         return "Airship " +
-                "name = '" + getName() + '\'' +
+                '\'' + getName() + '\'' +
                 ", passengersCapacity = " + getPassengersCapacity() +
-                ", liftingСapacity = " + getLiftingСapacity();
+                ", liftingСapacity = " + getLiftingCapacity();
     }
 }

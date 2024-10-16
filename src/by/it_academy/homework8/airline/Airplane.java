@@ -6,15 +6,17 @@ public class Airplane extends Aircraft{
         super(name, passengersCapacity, liftingСapacity);
     }
 
-    public Airplane(int passengersCapacity, double liftingСapacity) {
-        super(passengersCapacity, liftingСapacity);
+    public Airplane(int passengersCapacity, double liftingCapacity) {
+        super(passengersCapacity, liftingCapacity);
     }
+
+
 
     @Override
     public String toString() {
         return "Airplane " +
-                "name = '" + getName() + '\'' +
+                '\'' + getName() + '\'' +
                 ", passengersCapacity = " + getPassengersCapacity() +
-                ", liftingСapacity = " + getLiftingСapacity();
+                ", liftingСapacity = " + getLiftingCapacity();
     }
 }
