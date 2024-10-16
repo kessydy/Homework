@@ -16,23 +16,6 @@ public class Aircraft {
         this.liftingCapacity = liftingCapacity;
     }
 
-    public Aircraft(int passengersCapacity, double liftingCapacity) {
-        this.passengersCapacity = passengersCapacity;
-        this.liftingCapacity = liftingCapacity;
-    }
-
-    public Aircraft(String name) {
-        this.name = name;
-    }
-
-    public Aircraft(int passengersCapacity) {
-        this.passengersCapacity = passengersCapacity;
-    }
-
-    public Aircraft(double liftingCapacity) {
-        this.liftingCapacity = liftingCapacity;
-    }
-
     public String getName() {
         return name;
     }

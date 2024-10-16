@@ -21,16 +21,16 @@ public class Main {
         System.out.println(airLine);
         System.out.println("The full passenger capacity of aircrafs is: " + airLine.getFullPassengersCapacity());
         System.out.println("The full full lifting of aircrafs is: " + airLine.getFullLiftingCapacity());
-        Aircraft referenceAircraft = new Aircraft(200, 300);
-        System.out.println("Passengers capacity 200 & lifting capacity 300 includes: " +
-                airLine.findPlanePassengersCapacityLiftingCapacity(referenceAircraft));
-        Aircraft referenceAircraft1 = new Aircraft("Ми-171А2");
-        System.out.println("Name \'Ми-171А2\' includes: " + airLine.findPlaneName(referenceAircraft1));
-        Aircraft referenceAircraft2 = new Aircraft(200.0);
-        System.out.println("Lifting capacity 200 includes: " + airLine.findPlaneLiftingCapacity(referenceAircraft2));
-        Aircraft referenceAircraft3 = new Aircraft(20000);
-        System.out.println("Passengers capacity 20000 includes: " +
-                airLine.findPlanePassengersCapacity(referenceAircraft3));
+        System.out.println();
+        System.out.println("Passengers capacity from 200 to 400 & lifting capacity from 300 to 60000 includes: " +
+                airLine.findPlanePassengersCapacityLiftingCapacity(200, 400,
+                        300, 60000));
+        System.out.println("Name \"Ми-171\" includes: " + airLine.findPlaneName("Ми-171"));
+        System.out.println("Name \"Robinson R44\" includes: " + airLine.findPlaneName("Robinson R44"));
+        System.out.println("Lifting capacity from 300 to 5000 includes: " +
+                airLine.findPlaneLiftingCapacity(300, 5000));
+        System.out.println("Passengers capacity from 200 to 10000 includes: " +
+                airLine.findPlanePassengersCapacity(200, 10000));
     }
 }
 

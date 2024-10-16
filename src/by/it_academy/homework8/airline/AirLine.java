@@ -37,45 +37,52 @@ public class AirLine {
         return "AirLine fleet: " + Arrays.toString(aircrafts);
     }
 
-    public Aircraft findPlanePassengersCapacityLiftingCapacity(Aircraft o) {
-        Aircraft aircraftNeeded = new Aircraft("There is no right aircraft");
+    public Aircraft findPlanePassengersCapacityLiftingCapacity(int lowerPassengersCapacity,
+                                                               int higherPassengersCapacity,
+                                                               double lowerLiftingCapacity,
+                                                               double higherLiftingCapacity) {
+        Aircraft aircraftNeeded = new Aircraft("There is no right aircraft", 0, 0);
         String[] findPlane = new String[aircrafts.length];
         for (Aircraft aircraft : aircrafts) {
-            if (o.getPassengersCapacity() <= aircraft.getPassengersCapacity() &&
-                    o.getLiftingCapacity() <= aircraft.getLiftingCapacity()) {
+            if (lowerPassengersCapacity <= aircraft.getPassengersCapacity() &&
+                    higherPassengersCapacity >= aircraft.getPassengersCapacity() &&
+                    lowerLiftingCapacity <= aircraft.getLiftingCapacity() &&
+                    higherLiftingCapacity >= aircraft.getLiftingCapacity()) {
                 aircraftNeeded = aircraft;
             }
         }
         return aircraftNeeded;
     }
 
-    public Aircraft findPlanePassengersCapacity(Aircraft o) {
-        Aircraft aircraftNeeded = new Aircraft("There is no right aircraft");
+    public Aircraft findPlanePassengersCapacity(int lowerPassengersCapacity, int higherPassengersCapacity) {
+        Aircraft aircraftNeeded = new Aircraft("There is no right aircraft", 0, 0);
         String[] findPlane = new String[aircrafts.length];
         for (Aircraft aircraft : aircrafts) {
-            if (o.getPassengersCapacity() <= aircraft.getPassengersCapacity()) {
+            if (lowerPassengersCapacity <= aircraft.getPassengersCapacity() &&
+                    higherPassengersCapacity >= aircraft.getPassengersCapacity()) {
                 aircraftNeeded = aircraft;
             }
         }
         return aircraftNeeded;
     }
 
-    public Aircraft findPlaneLiftingCapacity(Aircraft o) {
-        Aircraft aircraftNeeded = new Aircraft("There is no right aircraft");
+    public Aircraft findPlaneLiftingCapacity(double lowerLiftingCapacity, double higherLiftingCapacity) {
+        Aircraft aircraftNeeded = new Aircraft("There is no right aircraft", 0, 0);
         String[] findPlane = new String[aircrafts.length];
         for (Aircraft aircraft : aircrafts) {
-            if (o.getLiftingCapacity() <= aircraft.getLiftingCapacity()) {
+            if (lowerLiftingCapacity <= aircraft.getLiftingCapacity() &&
+                    higherLiftingCapacity >= aircraft.getLiftingCapacity()) {
                 aircraftNeeded = aircraft;
             }
         }
         return aircraftNeeded;
     }
 
-    public Aircraft findPlaneName(Aircraft o) {
-        Aircraft aircraftNeeded = new Aircraft("There is no right aircraft");
+    public Aircraft findPlaneName(String name) {
+        Aircraft aircraftNeeded = new Aircraft("There is no right aircraft", 0, 0);
         String[] findPlane = new String[aircrafts.length];
         for (Aircraft aircraft : aircrafts) {
-            if (o.getName().equals(aircraft.getName())) {
+            if (name.equals(aircraft.getName())) {
                 aircraftNeeded = aircraft;
             }
         }
