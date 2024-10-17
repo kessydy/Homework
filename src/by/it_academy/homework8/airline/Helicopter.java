@@ -2,8 +2,8 @@ package by.it_academy.homework8.airline;
 
 public class Helicopter extends Aircraft implements Hovering{
 
-    public Helicopter(String name, int passengersCapacity, double liftingСapacity) {
-        super(name, passengersCapacity, liftingСapacity);
+    public Helicopter(String name, int passengersCapacity, double liftingCapacity) {
+        super(name, passengersCapacity, liftingCapacity);
     }
 
     @Override
@@ -16,7 +16,7 @@ public class Helicopter extends Aircraft implements Hovering{
         return "Helicopter " +
                 '\'' + getName() + '\'' +
                 ", passengersCapacity = " + getPassengersCapacity() +
-                ", liftingСapacity = " + getLiftingCapacity();
+                ", liftingCapacity = " + getLiftingCapacity();
     }
 }
 

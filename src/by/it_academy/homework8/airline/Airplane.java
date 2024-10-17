@@ -11,6 +11,6 @@ public class Airplane extends Aircraft{
         return "Airplane " +
                 '\'' + getName() + '\'' +
                 ", passengersCapacity = " + getPassengersCapacity() +
-                ", liftingСapacity = " + getLiftingCapacity();
+                ", liftingCapacity = " + getLiftingCapacity();
     }
 }

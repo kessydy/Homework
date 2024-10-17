@@ -16,6 +16,6 @@ public class Airship extends Aircraft implements Hovering{
         return "Airship " +
                 '\'' + getName() + '\'' +
                 ", passengersCapacity = " + getPassengersCapacity() +
-                ", liftingСapacity = " + getLiftingCapacity();
+                ", liftingCapacity = " + getLiftingCapacity();
     }
 }
