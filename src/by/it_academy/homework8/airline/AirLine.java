@@ -18,18 +18,18 @@ public class AirLine {
 
     public int getFullPassengersCapacity() {
         int fullPassengersCapacity = 0;
-        for (Aircraft aircrafts : aircrafts) {
-            fullPassengersCapacity += aircrafts.getPassengersCapacity();
+        for (Aircraft aircraft : aircrafts) {
+            fullPassengersCapacity += aircraft.getPassengersCapacity();
         }
         return fullPassengersCapacity;
     }
 
     public double getFullLiftingCapacity() {
-        double fullLiftingСapacity = 0;
-        for (Aircraft aircrafts : aircrafts) {
-            fullLiftingСapacity += aircrafts.getLiftingCapacity();
+        double fullLiftingCapacity = 0;
+        for (Aircraft aircraft : aircrafts) {
+            fullLiftingCapacity += aircraft.getLiftingCapacity();
         }
-        return fullLiftingСapacity;
+        return fullLiftingCapacity;
     }
 
     @Override
@@ -41,48 +41,43 @@ public class AirLine {
                                                                int higherPassengersCapacity,
                                                                double lowerLiftingCapacity,
                                                                double higherLiftingCapacity) {
-        Aircraft aircraftNeeded = new Aircraft("There is no right aircraft", 0, 0);
         for (Aircraft aircraft : aircrafts) {
             if (lowerPassengersCapacity <= aircraft.getPassengersCapacity() &&
                     higherPassengersCapacity >= aircraft.getPassengersCapacity() &&
                     lowerLiftingCapacity <= aircraft.getLiftingCapacity() &&
                     higherLiftingCapacity >= aircraft.getLiftingCapacity()) {
-                aircraftNeeded = aircraft;
+                return aircraft;
             }
         }
-        return aircraftNeeded;
+        return null;
     }
 
     public Aircraft findPlanePassengersCapacity(int lowerPassengersCapacity, int higherPassengersCapacity) {
-        Aircraft aircraftNeeded = new Aircraft("There is no right aircraft", 0, 0);
         for (Aircraft aircraft : aircrafts) {
             if (lowerPassengersCapacity <= aircraft.getPassengersCapacity() &&
                     higherPassengersCapacity >= aircraft.getPassengersCapacity()) {
-                aircraftNeeded = aircraft;
+                return aircraft;
             }
         }
-        return aircraftNeeded;
+        return null;
     }
 
     public Aircraft findPlaneLiftingCapacity(double lowerLiftingCapacity, double higherLiftingCapacity) {
-        Aircraft aircraftNeeded = new Aircraft("There is no right aircraft", 0, 0);
         for (Aircraft aircraft : aircrafts) {
             if (lowerLiftingCapacity <= aircraft.getLiftingCapacity() &&
                     higherLiftingCapacity >= aircraft.getLiftingCapacity()) {
-                aircraftNeeded = aircraft;
+                return aircraft;
             }
         }
-        return aircraftNeeded;
+        return null;
     }
 
     public Aircraft findPlaneName(String name) {
-        Aircraft aircraftNeeded = new Aircraft("There is no right aircraft", 0, 0);
         for (Aircraft aircraft : aircrafts) {
             if (name.equals(aircraft.getName())) {
-                aircraftNeeded = aircraft;
+                return aircraft;
             }
-        }
-        return aircraftNeeded;
+        } return null;
     }
 }
 
