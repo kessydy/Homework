@@ -10,7 +10,7 @@ public class Homework9 {
 //        exercise2();
 //        exercise3();
 //        exercise4();
-        exercise5();
+//        exercise5();
     }
 
     //1. Введите строку (текст). Показать номера символов, совпадающих с последним символом строки.
@@ -63,7 +63,8 @@ public class Homework9 {
 
     //4. Напишите регулярное выражение чтобы найти все годы между 1977 и 1982
     //1975 1976 1977 1978 1979 1980 1981 1982 1983 1984
-    private static void exercise4() {
+
+/*    private static void exercise4() {
         String years = "1975 1976 1977 1978 1979 1980 1981 1982 1983 1984";
         String yearsPattern = "1977\s(.*)\s1982";
         Pattern pattern = Pattern.compile(yearsPattern);
@@ -73,6 +74,16 @@ public class Homework9 {
                     .replaceAll("1977\s", "")
                     .replaceAll("\s1982", "");
             System.out.println(year);
+        }
+    }*/
+
+    private static void exercise4() {
+        String years = "1975 1976 1977 1978 1979 1980 1981 1982 1983 1984";
+        String yearsPattern = "19[78][78901]";
+        Pattern pattern = Pattern.compile(yearsPattern);
+        Matcher matcher = pattern.matcher(years);
+        while (matcher.find()) {
+            System.out.println(matcher.group());
         }
     }
 
