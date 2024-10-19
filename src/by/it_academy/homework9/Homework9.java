@@ -6,11 +6,12 @@ import java.util.regex.Pattern;
 
 public class Homework9 {
     public static void main(String[] args) {
-//        exercise1();
-//        exercise2();
-//        exercise3();
-//        exercise4();
-//        exercise5();
+        exercise1();
+        exercise2();
+        exercise3();
+        exercise4();
+        exercise4a();
+        exercise5();
     }
 
     //1. Введите строку (текст). Показать номера символов, совпадающих с последним символом строки.
@@ -64,7 +65,7 @@ public class Homework9 {
     //4. Напишите регулярное выражение чтобы найти все годы между 1977 и 1982
     //1975 1976 1977 1978 1979 1980 1981 1982 1983 1984
 
-/*    private static void exercise4() {
+    private static void exercise4() {
         String years = "1975 1976 1977 1978 1979 1980 1981 1982 1983 1984";
         String yearsPattern = "1977\s(.*)\s1982";
         Pattern pattern = Pattern.compile(yearsPattern);
@@ -75,11 +76,11 @@ public class Homework9 {
                     .replaceAll("\s1982", "");
             System.out.println(year);
         }
-    }*/
+    }
 
-    private static void exercise4() {
+    private static void exercise4a() {
         String years = "1975 1976 1977 1978 1979 1980 1981 1982 1983 1984";
-        String yearsPattern = "19[78][78901]";
+        String yearsPattern = "197[89]|198[01]";
         Pattern pattern = Pattern.compile(yearsPattern);
         Matcher matcher = pattern.matcher(years);
         while (matcher.find()) {
@@ -93,15 +94,16 @@ public class Homework9 {
     private static void exercise5() {
         String ip = "127.0.0.1  255.255.255.253  100.99.44.2  260.124.245.0  2.123.242.212    2.2.265.2  " +
                 "001.1.000.1    1.1.1.01   210.138.12.1  0.0.0.0";
-        String ipPattern = "(^1?[1-9]?[0-9]|\\D1?[1-9]?[0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\." +
-                "((1?[1-9]?[0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){2}" +
-                "(1?[1-9]?[0-9]\\D|1?[1-9]?[0-9]$|1[0-9][0-9]|2[0-4][0-9]|25[0-5])";
+        String ipPattern = "(^[1-9]?[0-9]|\\D[1-9]?[0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\." +
+                "(([1-9]?[0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){2}" +
+                "([1-9]?[0-9]\\D|1[0-9][0-9]|2[0-4][0-9]|25[0-5]|[1-9]?[0-9]$)";
+
                 Pattern pattern = Pattern.compile(ipPattern);
         Matcher matcher = pattern.matcher(ip);
         while (matcher.find()) {
             String rightIp = matcher.group()
                     .replaceAll(" ", "");
-            System.out.println(rightIp);
+            System.out.println("Right IP is: " + rightIp);
         }
     }
 
