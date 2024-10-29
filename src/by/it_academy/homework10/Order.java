@@ -3,6 +3,7 @@ package by.it_academy.homework10;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
 
 //Программа для учета заказов в интернет-магазине:
 //- создать класс Order, который содержит информацию о заказе (например номер заказа, список товаров
@@ -11,14 +12,13 @@ import java.util.List;
 //- также необходимо реализовать методы для добавления заказа, удаления заказа и вычисления общей суммы всех заказов
 
 public class Order {
-    private int numberOfOrder;
     private List<Product> products;
+    private UUID numberOfOrder;
     private static int num = 0;
 
     public Order() {
         this.products = new ArrayList<>();
-        num++;
-        this.numberOfOrder = num;
+        this.numberOfOrder = UUID.randomUUID();
     }
 
     public void addItem(Product product) {
@@ -45,7 +45,7 @@ public class Order {
         System.out.printf("The total cost of order is: %.2f dollar USA %n", getTotalCost());
     }
 
-    public int getNumberOfOrder() {
+    public UUID getNumberOfOrder() {
         return numberOfOrder;
     }
 
