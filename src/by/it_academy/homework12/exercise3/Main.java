@@ -12,14 +12,11 @@ public class Main {
     }
 
     public static <K> Map<K, Integer> arrayToMap(K[] ks) {
-        List <K> countList = new ArrayList<>(Arrays.asList(ks));
-        Set <K> uniqSet = new HashSet<>(Arrays.asList(ks));
-        List <K> uniqList = new ArrayList<>(uniqSet);
         Map <K, Integer> mapArray = new HashMap<>();
-        for (int i = 0; i < uniqList.size(); i++) {
-            int count = Collections.frequency(countList, uniqList.get(i));
-            mapArray.put(countList.get(i), count);
-            }
+        for (K elem : ks){
+            int count = mapArray.getOrDefault(elem, 0);
+            mapArray.put(elem, count+1);
+        }
         return mapArray;
     }
 }
