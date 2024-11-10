@@ -23,8 +23,6 @@ public class Main {
                 duplicates.add(list.get(i));
             }
         }
-        List<T> duplicates1 = new ArrayList<>();
-        duplicates1.addAll(duplicates);
-        return duplicates1;
+        return new ArrayList<>(duplicates);
     }
 }

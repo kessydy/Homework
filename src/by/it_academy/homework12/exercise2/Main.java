@@ -19,5 +19,17 @@ public class Main {
         System.out.println(stack);
         System.out.println("Removed element is: " + stack.pop());
         System.out.println(stack);
+        stack.pop();
+        stack.pop();
+        stack.pop();
+        stack.pop();
+        stack.pop();
+        stack.pop();
+        System.out.println("Removed element is: " + stack.pop());
+        stack.pop();
+        System.out.println("Removed element is: " + stack.pop());
+        stack.pop();
+
+
     }
 }
