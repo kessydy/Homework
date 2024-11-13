@@ -4,10 +4,11 @@ import java.util.Arrays;
 
 public class MyStack<T> {
     private Object[] stack;
-    private int lastIndex = -1; //индекс последнего объекта массива
+    private int lastIndex = -1;
 
-    public MyStack() {
-        this.stack = new Object[10];
+
+    public MyStack(int size) {
+        this.stack = new Object[size];
     }
 
     public void push(T elem) {
@@ -46,7 +47,7 @@ public class MyStack<T> {
         stack2 = new Object[lastIndex + 1];
         for (int i = 0; i < lastIndex + 1; i++) {
             stack2[i] = stack[i];
-            }
+        }
         return Arrays.toString(stack2);
     }
 }

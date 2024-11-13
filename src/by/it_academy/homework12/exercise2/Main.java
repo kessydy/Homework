@@ -2,7 +2,7 @@ package by.it_academy.homework12.exercise2;
 
 public class Main {
     public static void main(String[] args) {
-        MyStack<String> stack = new MyStack<>();
+        MyStack<String> stack = new MyStack<>(4);
         System.out.println("Removed element is: " + stack.pop());
         System.out.println(stack);
         stack.push("CORPUS");
