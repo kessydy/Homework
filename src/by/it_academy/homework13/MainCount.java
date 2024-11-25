@@ -2,6 +2,8 @@ package by.it_academy.homework13;
 
 import java.io.*;
 
+import static by.it_academy.utils.WriteFile.writeTextFile;
+
 //Прочитать файл по строкам. Подсчитать количество символов 'a' в файле. Заменить содержимое файла на число символов 'a'
 public class MainCount {
     static final String FILE_PATH = "resources/myText2.txt";
@@ -14,17 +16,6 @@ public class MainCount {
     public static void main(String[] args) throws IOException {
         writeTextFile(FILE_PATH, text1, text2);
         writeIntFile(FILE_PATH, readAndCountFile(FILE_PATH));
-
-    }
-
-    private static void writeTextFile(String filePath, String text1, String text2) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
-            writer.write(text1);
-            writer.newLine();
-            writer.write(text2);
-        } catch (IOException e) {
-            System.out.printf("Error occurred (write): %s%n", e.getMessage());
-        }
     }
 
     private static void writeIntFile(String filePath, Integer count) {

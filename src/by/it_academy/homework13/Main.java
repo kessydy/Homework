@@ -4,6 +4,8 @@ import java.io.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static by.it_academy.utils.WriteFile.writeTextFile;
+
 //Создать файл с текстом, подсчитать в тексте количество знаков препинания и слов.
 public class Main {
     static final String FILE_PATH = "resources/myText.txt";
@@ -15,14 +17,6 @@ public class Main {
         System.out.println(readFile(FILE_PATH));
         countPunctuationMarks(readFile(FILE_PATH));
         countWords(readFile(FILE_PATH));
-    }
-
-    private static void writeTextFile(String filePath, String text) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
-            writer.write(text);
-        } catch (IOException e) {
-            System.out.printf("Error occurred (write): %s%n", e.getMessage());
-        }
     }
 
     private static String readFile(String filePath) {
@@ -37,7 +31,7 @@ public class Main {
         return null;
     }
 
-    private static String textCorrect(String text) {
+    private static String correctText(String text) {
         text = text.trim();
         text = text
                 .replaceAll("(\\s+)", " ")
@@ -60,7 +54,7 @@ public class Main {
     }
 
     private static void countWords(String text) {
-        textCorrect(text);
+        correctText(text);
         Pattern pattern = Pattern.compile("[\\s]");
         Matcher matcher = pattern.matcher(text);
         int count = 0;

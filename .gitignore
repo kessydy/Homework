@@ -24,7 +24,9 @@ bin/
 /dist/
 /nbdist/
 /.nb-gradle/
-
+.ScanNumberMy
+.RandomExample
+.MathemRandom
 ### VS Code ###
 .vscode/
 
