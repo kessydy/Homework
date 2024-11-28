@@ -17,10 +17,11 @@ public class Main {
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         List<Book> books = new ArrayList<>();
-        books.add(new Book("Оруэлл", "1984", 2021, 243));
-        books.add(new Book("Караткевич", "Дзiкае паляванне караля Стаха", 2020, 231));
+        books.add(new Book("Оруэлл", "1984", 2021, 231));
+        books.add(new Book("Оруэлл", "Не хочу гуглить", 2020, 231));
         books.add(new Book("Толкиен", "Хоббит", 2024, 534));
         books.add(new Book("Толкиен", "Властелин колец", 2020, 324));
+        books.add(new Book("Толкиен", "Властелин колец2", 2023, 231));
         writeBooksToFile(books);
 /*        List<Book> bookList = readBooksToFile(FILE_PATH);
         System.out.println(bookList);
@@ -43,13 +44,8 @@ public class Main {
         System.out.println("Sorted by year: " + sortedByPages);
         //создание подсписков книг (например, список книг определенного автора или список книг с количеством страниц
         // больше определенного значения)
-        System.out.println("Groups by author: " + groupBook(FILE_PATH));
-        Predicate<Book> chooseByAuthor = book -> book.getAuthor().equals("Толкиен");
-        List<Book> booksByAuthor = filterBook(FILE_PATH, chooseByAuthor);
-        System.out.println("Books by Толкиен: " + booksByAuthor);
-        Predicate<Book> chooseByPages = book -> book.getPages() > 300;
-        List<Book> booksByPages = filterBook(FILE_PATH, chooseByPages);
-        System.out.println("Books more than 300 pages: " + booksByPages);
+        System.out.println("Groups by author: " + groupBookByAutor(FILE_PATH));
+        System.out.println("Groups by pages: " + groupBookByPages(FILE_PATH));
     }
 
     private static void writeBooksToFile(List<Book> books) throws IOException {
@@ -84,7 +80,15 @@ public class Main {
         return filteredBooks;
     }
 
-    private static Map<String, List<Book>> groupBook(String filePath) throws IOException,
+    private static Map<String, List<Book>> groupBookByPages(String filePath) throws IOException,
+            ClassNotFoundException {
+        List<Book> bookList = readBooksToFile(filePath);
+        Map<String, List<Book>> booksByPages = bookList.stream()
+                .collect(Collectors.groupingBy(book -> String.valueOf(book.getPages())));
+        return booksByPages;
+    }
+
+    private static Map<String, List<Book>> groupBookByAutor(String filePath) throws IOException,
             ClassNotFoundException {
         List<Book> bookList = readBooksToFile(filePath);
         Map<String, List<Book>> booksByAuthor = bookList.stream()
