@@ -65,19 +65,17 @@ public class Main {
     private static List<Book> filterBook(String filePath, Predicate<Book> predicate) throws IOException,
             ClassNotFoundException {
         List<Book> bookList = readBooksToFile(filePath);
-        List<Book> filteredBooks = bookList.stream()
+        return bookList.stream()
                 .filter(predicate)
                 .toList();
-        return filteredBooks;
     }
 
     private static List<Book> sortBook(String filePath, Comparator<Book> comparator) throws IOException,
             ClassNotFoundException {
         List<Book> bookList = readBooksToFile(filePath);
-        List<Book> filteredBooks = bookList.stream()
+        return bookList.stream()
                 .sorted(comparator)
                 .toList();
-        return filteredBooks;
     }
 
     private static Map<String, List<Book>> groupBookByPages(String filePath) throws IOException,
